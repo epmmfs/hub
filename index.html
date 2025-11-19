@@ -1,15 +1,11 @@
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-  <meta name="Ernest" content="roomcount" />
-  <meta name="description" content="Opis" />
-  <meta name="viewport" content="width=device-width, initial-scale=0.75, user-scalable=yes">
-  <title>MMFS Middle School</title>
-</head>
-<style type=text/css>
-
-#dynaFader {
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full-Screen Background Video</title>
+  <style>
+  #dynaFader {
        BACKGROUND: #f0f0f0; FILTER: blendTrans(duration=0.75); HEIGHT: 15px; WIDTH: 620px
 }
 #dynaFader A {
@@ -28,22 +24,22 @@ A.sl:visited {
        TEXT-DECORATION: none
 }
 A.sl:hover {
-       COLOR: #666666; TEXT-DECORATION: underline
+       COLOR: #000000; TEXT-DECORATION: none
 }
 .sl {
-       COLOR: #808080; FONT-SIZE: 10px; FONT-WEIGHT: bold
+       COLOR: #FF8000; FONT-SIZE: 10px; FONT-WEIGHT: bold
 }
 .ns {
-       COLOR: #7A7A7A; FONT-SIZE: 14px; FONT-WEIGHT: bold; TEXT-DECORATION: none; 
+       COLOR: #000000; FONT-SIZE: 22px; FONT-WEIGHT: bold; TEXT-DECORATION: none; 
 }
 A.ns {
-       COLOR: #7A7A7A; FONT-SIZE: 14px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+       COLOR: #000000; FONT-SIZE: 22px; FONT-WEIGHT: bold; TEXT-DECORATION: none
 }
 A.ns:visited {
-       COLOR: #7A7A7A; FONT-SIZE: 14px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+       COLOR: #000000; FONT-SIZE: 22px; FONT-WEIGHT: bold; TEXT-DECORATION: none
 }
 A.ns:hover {
-       COLOR: #FF8000; FONT-SIZE: 14px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+       COLOR: #FF8000; FONT-SIZE: 22px; FONT-WEIGHT: bold; TEXT-DECORATION: none
 }
 .big {
        COLOR: #000000; FONT-SIZE: 14px; FONT-WEIGHT: bold
@@ -72,47 +68,112 @@ A.ns:hover {
 .whi {
        BACKGROUND: #ff0000; COLOR: #ffffff; FONT-WEIGHT: bold
 }
-#videoDiv2 {width:100%; max-width:1200px; margin:auto; display:block; position: relative;} /* This has been changed */
-#video2{width:100%; height:auto } /* This has been changed */
-#videoMessage2 { position: absolute; top: 0; left: 0;
-display: flex;
-flex-direction: column; 
-justify-content: top; 	<!--content/logo od gory-->
-align-items: center; 
-width: 100%;
-height: 100%;
+  
+     /* Reset default margins and make everything fill the viewport */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: yes; /* prevents scrollbars */
+    }
+
+    /* The video container */
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover; /* This is the key: scales and crops like background-size: cover */
+      z-index: -1; /* puts it behind everything */
+    }
+
+    /* Optional: content on top of the video */
+    .content {
+      position: relative;
+      z-index: 1;
+      color: white;	
+      text-align: center;
+      padding-top: 1vh;
+      font-family: Arial, sans-serif;
+      text-shadow: 0 0 10px rgba(0,0,0,0.7);
+    }
+
+    h1 {
+      font-size: 6rem;
+    }
+	
+ <!-- Background video 
+	.content {
+  position: absolute;      /* changed from relative */
+  top: 10px;               /* this does exactly what you want */
+  left: 0;
+  right: 0;
+  z-index: 1;
+  color: white;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  text-shadow: 0 0 10px rgba(0,0,0,0.7);
+  /* padding-top is no longer needed */
 }
 
-.shadow-text {
-            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.9); /* Right/down offset, blur, semi-black color */
-            font-size: 89px;
-            font-family: Arial Black, sans-serif;
-        }
-        
-        /* Multiple shadows for a glow effect */
-        .glow-text {
-            text-shadow: 
-                0 0 5px #fff, 
-                0 0 10px #fff, 
-                0 0 15px #fff, 
-                0 0 20px #ff4da6, 
-                0 0 35px #ff4da6, 
-                0 0 40px #ff4da6;
-            color: #fff;
-            font-size: 48px;
-            font-family: Arial, sans-serif;
-        }
+-->
 
-</style>
+  </style>
+</head>
+<body>
+
+  <!-- Background video -->
+  <video id="bg-video" autoplay muted loop playsinline>
+    <!-- Replace these with your own video files -->
+    <source src="./mov/loop_one.mp4" type="video/mp4">
+ 
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Your actual page content goes here -->
+  <div class="content">
+  <table align="center" valign="top" border="0" cellspacing="0" cellpadding="0" width="1200" height="400" background="" class="ns">
+<tr>
+	 <td height="120" width=10></td>
+	 <td align="left" valign="top" width="886" height="104" bgcolor=""><a href="https://new.marymcdowell.org/" onMouseOver="self.status='Home'; return true;"><img src="jpg/background/Logo/mmfs_logo.png" border="0" height="114" width="102" align="top" /></a><br>
 
 
-<body background="jpg/background/back.png">
-<table align="center" valign="top" border="0" cellspacing="0" cellpadding="0" width="0%" height="100%" bgcolor="" class="ns">
+
+</tr>
+</table>
+ 
+  
+  
+	<table align="center" class="blu" valign="top" border="0" cellspacing="0" cellpadding="0" width="500	" height="" bgcolor="">
+<tr>
+	
+
+	  <td align="top" valign="center" height="33" width="80" bgcolor=""><a class="sl" href="./index.html"><span style="font-family: Arial; font-size: 12pt;">Main</font></a></font></td>
+	
+	  <td align="top" valign="center" height="33" width="80" bgcolor=""><a class="sl" href="https://mmfs.gofmx.com/calendar"><span style="font-family: Arial; font-size: 12pt;">FMX</font></a></font></td>
+	
+	  <td align="top" valign="center" height="33" width="80" bgcolor=""><a class="sl" href="https://docs.google.com/spreadsheets/d/1RYqYKdkx6djF8gAdy33BAWHZUvOs9-u2EEtzceWV4q4/edit?gid=86623285#gid=86623285"><span style="font-family: Arial; font-size: 12pt;">Emergency</font></a></font></td>
+	 
+	  <td align="top" valign="center" height="33" width="80" bgcolor=""><a class="sl" href="./contacts.html"><span style="font-family: Arial; font-size: 12pt;">Contacts</font></a></font></td>
+
+</tr>
+	</table>
+	  
+    <h1>Middle School</h1>
+    
+  
+
+  
+  
+  </div>
+<table align="center" valign="top" border="0" cellspacing="0" cellpadding="0" width="0%" height="30%" bgcolor="" class="ns">
 	<tr>
 	
 	<td>
 	
-	
+	</td>
+	</tr>
 	
 
 
@@ -120,69 +181,24 @@ height: 100%;
 	<tr>
 	
 	<td align="left" valign="top" width="200" height="20" bgcolor=""><font face="Verdana" size="2"></font></td>
-	
+
 	
 </tr>
 </table>
 <table align="center" class="blu" valign="top" border="0" cellspacing="0" cellpadding="0" width="1200" height="">
 <tr>
      <td width="14" height="20" bgcolor="White"></td>
-     <td align="right" valign="middle" width="1200" height="" bgcolor="White"><br>
+     <td align="left" valign="middle" width="1200" height="" bgcolor="White"><br><p><font color="black" size="10">Maintenance Technician HUB</font></p>
 		<table align="right" valign="top" border="0" cellspacing="0" cellpadding="0" width="33%" height="" class="ns">
-<tr>
-	
 
-	  <td align="middle" valign="top" height="33" width="80" bgcolor=""><a class="ns" href="./index.html"><span style="font-family: Arial; font-size: 12pt;">Main</font></a></font></td>
-	
-	  <td align="middle" valign="top" height="33" width="80" bgcolor=""><a class="ns" href="https://mmfs.gofmx.com/calendar"><span style="font-family: Arial; font-size: 12pt;">FMX</font></a></font></td>
-	
-	  <td align="middle" valign="top" height="33" width="80" bgcolor=""><a class="ns" href="https://docs.google.com/spreadsheets/d/1RYqYKdkx6djF8gAdy33BAWHZUvOs9-u2EEtzceWV4q4/edit?gid=86623285#gid=86623285"><span style="font-family: Arial; font-size: 12pt;">Emergency</font></a></font></td>
-	 
-	  <td align="middle" valign="top" height="33" width="80" bgcolor=""><a class="ns" href="./contacts.html"><span style="font-family: Arial; font-size: 12pt;">Contacts</font></a></font></td>
-
-</tr>
 </table>
 	 
 	 
-	 </td>
+	
      <td background="jpg/background/gora_prawy.png" width="15" height="33"></td>
 </tr>
 </table>
 
-<table align="center" valign="top" border="0" cellspacing="0" cellpadding="0" width="1200" height="400" background="jpg/background/first.jpg" class="ns">
-<tr>
-	 <td>
-	 
-	<div id="videoDiv2"> 
-	<video id="video2" preload="" autoplay="auto" muted="" playsinline="" loop="">
-	<source src="./mov/loop_one.mp4" type="video/mp4">
-	</video> 
-    
-	<div id="videoMessage2" class="styling">
-
-    <p class="videoClick"><a href="index.html"></a>
-	
-	<table align="center" valign="top" border="0" cellspacing="0" cellpadding="0" width="1200" height="400" background="" class="ns">
-<tr>
-	 <td height="120" width=10></td>
-	 <td align="left" valign="top" width="886" height="104" bgcolor=""><a href="https://new.marymcdowell.org/" onMouseOver="self.status='Home'; return true;"><img src="jpg/background/Logo/mmfs_logo.png" border="0" height="114" width="102" align="top" /></a><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br>
-<h1 class="shadow-text"><font color="white">Middle School</font>
-<br>
-<font color="white" size="10">Maintenance Technician HUB</font></h1><br>
-
-
-</tr>
-</table>
-	
-	
-    </p> 
-    </div>
-</div>
-		
-	 </td>
-</tr>
-</table>
 <table align="center" valign="top" border="0" cellspacing="0" cellpadding="0" width="1200" height="30" bgcolor="white" class="ns">
 	<tr>
 	
@@ -400,7 +416,6 @@ function showSlides() {
 	
 </tr>
 </table>
-
 
 </body>
 </html>
