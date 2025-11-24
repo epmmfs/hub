@@ -4,7 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MIDDLE SCHOOL HUB</title>
-  <style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const video = document.getElementById('bg-video');
+  
+  // Force play as soon as possible
+  const playPromise = video.play();
+  
+  if (playPromise !== undefined) {
+    playPromise.then(_ => {
+      // Autoplay started successfully
+    }).catch(error => {
+      // Autoplay was prevented (rare with muted+playsinline)
+      console.log("Autoplay prevented:", error);
+    });
+  }
+  
+  // Additional fallback for stubborn mobile browsers
+  video.addEventListener('canplaythrough', () => {
+    video.play();
+  });
+});
+</script>
+	
+	
+	<style>
   #dynaFader {
        BACKGROUND: #f0f0f0; FILTER: blendTrans(duration=0.75); HEIGHT: 15px; WIDTH: 620px
 }
@@ -386,6 +410,7 @@ function showSlides() {
 
 </body>
 </html>
+
 
 
 
