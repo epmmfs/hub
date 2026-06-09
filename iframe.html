@@ -4,39 +4,7 @@
     <meta charset="UTF-8">
     <title>360 Viewer</title>
 
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core/index.min.css">
-
-    <style>
-        html, body {
-            margin: 0;
-            height: 100%;
-        }
-
-        #viewer {
-            width: 100%;
-            height: 100vh;
-        }
-    </style>
-</head>
-<body>
-
-<div id="viewer"></div>
-
-<script type="module">
-    import { Viewer } from 'https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core/index.module.js';
-
-    const viewer = new Viewer({
-        container: document.querySelector('#viewer'),
-        panorama: 'Nope.jpg'
-    });
-</script>
-
-<table>
-<tr>
-<td align="left" valign="top" width="100" height="104" bgcolor=""><a href="https://new.marymcdowell.org/" onMouseOver="self.status='Home'; return true;"><img src="Nope.jpg" border="0" height="114" width="102" align="top" /></a></td><br>
-</tr>
-</table>
+<iframe width="1200" height="700" title="Panorama Viewer" scrolling="no" allowfullscreen src="https://renderstuff.com/tools/360-panorama-web-viewer-embed/?image=https://epmmfs.github.io/hub/Nope.jpg"></iframe>
 
 </body>
 </html>
